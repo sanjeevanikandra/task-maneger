@@ -1,9 +1,6 @@
-/* Home.css */
-
-
 .heading{
     font-size: 2.5rem;
-    color: #442121;
+    color: #721515;
     margin-bottom: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -23,33 +20,31 @@
     font-size: 1.5rem;
     position: relative;
     text-align: center;
-    color: #442121;
+    color: #381111;
     margin-bottom: 20px;
     font-family: Arial, Helvetica, sans-serif;
    
     margin: 0 auto;
 }
 
-  
-  /* Creating a blur effect with 3D effect on the background container */
   .container-2 {
     background-color: rgba(255, 255, 255, 0.7);
     padding: 30px;
     border-radius: 15px;
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     max-width: 600px;
     width: 100%;
   }
   
-  /* Bouncing effect on the Start button */
+  
   .bouncing-btn {
     animation: bounce 1s infinite;
     margin-top: 20px;
     padding: 12px 24px;
     font-size: 18px;
     border: none;
-    background-color: #df7e23;
+    background-color:  #a83030;
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -59,7 +54,8 @@
   }
   
   .bouncing-btn:hover {
-    transform: scale(1.1); /* Slightly enlarge the button on hover */
+    transform: scale(1.1); 
+    background-color: #e98d38;
   }
   
   @keyframes bounce {

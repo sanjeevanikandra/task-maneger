@@ -8,9 +8,14 @@ const TaskForm = () => {
   const [data, setData] = useState([]);
   // Function to fetch the todo list from the server
   const getData = async () => {
-    const response = await fetch('https://ai-task-maneger-backend.onrender.com');
-    const result = await response.json();
-    setData(result);
+    try {
+      const response = await fetch('https://ai-task-maneger-backend.onrender.com');
+      const result = await response.json();
+      setData(result);
+    }
+    catch (err) {
+      console.log(err);
+    }
   };
 
   // Fetch data when the component loads
@@ -30,7 +35,7 @@ const TaskForm = () => {
       },
       body: JSON.stringify(todos)
     });
-    
+
 
     const data = await response.json();
     if (response.ok) {
@@ -40,30 +45,25 @@ const TaskForm = () => {
       getData();
     } else {
       console.log('Data has not been added', data.error);
-      setError(data.error); // Display the error message
+      setError(data.error);
     }
   };
 
   return (
     <>
-    <Navbar />
-    <div className='container'>
-      
-      {error && <h1>{error}</h1>}
-      <form className='form' onSubmit={handleSubmit}>
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter todo"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)} // Update title as user types
-          />
-          <input type="submit" value="Add" className="btn Button" />
-        </div>
-      </form>
-      <TaskList data={data} getData={getData} /> {/* Pass props to Feature */}
-    </div>
+      <Navbar />
+      <div className='container'>
+
+        {error && <h1>{error}</h1>}
+        <form className='form' onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input type="text" className="form-control" placeholder="Enter todo" value={title}
+              onChange={(e) => setTitle(e.target.value)} />
+            <input type="submit" value="Add" className="btn Button" />
+          </div>
+        </form>
+        <TaskList data={data} getData={getData} />
+      </div>
     </>
   );
 };

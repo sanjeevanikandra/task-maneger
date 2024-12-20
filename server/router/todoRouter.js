@@ -6,12 +6,13 @@ const mongoose = require('mongoose');
 // Getting AI-based task priority
 const run = require('../geminiApi');
 
+
+// Create a todo
 router.post('/', async (req, res) => {
     const { title,priority,date } = req.body;
     try {
         const todoData = await Todo.create({
             title: title,
-            
             priority:await run(title),
             date: date
         });
@@ -33,17 +34,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a todo by id
-router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const todo = await Todo.findById(id);
-        res.status(200).json(todo);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-});
-
 // Delete a todo by id
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
@@ -54,19 +44,6 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
-
-router.put('/:id', async (req, res) => {
-    const { id } = req.params;
-    const { isCompleted } = req.body;
-  
-    try {
-      await Todo.findByIdAndUpdate(id, { isCompleted });
-      res.status(200).send({ message: 'Task completion status updated successfully!' });
-    } catch (error) {
-      res.status(500).send({ message: 'Error updating task', error });
-    }
-  });
-  
 
 // Update a todo by id
 router.put('/:id', async (req, res) => {

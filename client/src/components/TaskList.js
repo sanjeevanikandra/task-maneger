@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import './TaskList.css';
 
 const TaskList = ({ data, getData }) => {
-  const [isEditing, setIsEditing] = useState(null); 
-  const [newTitle, setNewTitle] = useState(''); 
+  const [isEditing, setIsEditing] = useState(null);
+  const [newTitle, setNewTitle] = useState('');
   const [newPriority, setNewPriority] = useState('');
 
   const deleteData = async (id) => {
     await fetch(`https://ai-task-maneger-backend.onrender.com/${id}`, { method: 'DELETE' });
-    getData(); 
+    getData();
   };
 
-  
 
-  const startEditing = (id, currentTitle,currentPriority) => {
-    setIsEditing(id); 
-    setNewTitle(currentTitle); 
+
+  const startEditing = (id, currentTitle, currentPriority) => {
+    setIsEditing(id);
+    setNewTitle(currentTitle);
     setNewPriority(currentPriority);
   };
 
@@ -23,14 +23,14 @@ const TaskList = ({ data, getData }) => {
     const response = await fetch(`https://ai-task-maneger-backend.onrender.com/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: newTitle,priority: newPriority  }), 
+      body: JSON.stringify({ title: newTitle, priority: newPriority }),
     });
 
     if (response.ok) {
       setIsEditing(null);
-      setNewTitle(''); 
+      setNewTitle('');
       setNewPriority('');
-      getData(); 
+      getData();
     }
   };
 
@@ -44,9 +44,9 @@ const TaskList = ({ data, getData }) => {
 
   return (
     <div>
-      <h2 className="text-center">Todo List</h2>
+      <h2 className="text-center">Task List</h2>
       <table className="table table-bordered mt-4">
-        <thead className="table-dark">
+        <thead className="bg">
           <tr>
             <th scope="col">S.N.</th>
             <th scope="col">Task</th>
@@ -60,57 +60,36 @@ const TaskList = ({ data, getData }) => {
               <td>{index + 1}</td>
               <td>
                 {isEditing === ele._id ? (
-                  <input
-                    type="text"
-                    value={newTitle}
-                    onChange={(e) => setNewTitle(e.target.value)}
-                    className="form-control"
-                  />
+                  <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} className="form-control" />
                 ) : (
                   ele.title
                 )}
               </td>
               <td>{isEditing === ele._id ? (
-                    <select
-                      value={newPriority}
-                      onChange={(e) => setNewPriority(e.target.value)}
-                      className="form-control"
-                    >
-                      <option value="High">High</option>
-                      <option value="Medium">Medium</option>
-                      <option value="Low">Low</option>
-                    </select>
-                  ) : (
-                    ele.priority
-                  )}</td>
+                <select value={newPriority} onChange={(e) => setNewPriority(e.target.value)} className="form-control">
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              ) : (
+                ele.priority
+              )}</td>
               <td>
                 {isEditing === ele._id ? (
                   <>
-                    <button
-                      className="btn btn-success"
-                      onClick={() => saveEdit(ele._id)}
-                    >
+                    <button className="save" onClick={() => saveEdit(ele._id)}>
                       Save
                     </button>
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => setIsEditing(null)}
-                    >
+                    <button className="cancel" onClick={() => setIsEditing(null)}>
                       Cancel
                     </button>
                   </>
                 ) : (
                   <>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => startEditing(ele._id, ele.title)}
-                    >
+                    <button className="edit" onClick={() => startEditing(ele._id, ele.title, ele.priority)}>
                       Edit
                     </button>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => deleteData(ele._id)}
-                    >
+                    <button className="delete" onClick={() => deleteData(ele._id)}>
                       Delete
                     </button>
                   </>
