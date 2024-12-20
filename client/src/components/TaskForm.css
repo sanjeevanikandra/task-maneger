@@ -1,0 +1,21 @@
+.Button{
+    font-size: 12px;
+    border: none;
+    background-color: #df7e23;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.1s ease-in-out;
+    justify-content: space-around;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 10%;
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+}

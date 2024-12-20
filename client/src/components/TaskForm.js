@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TaskList from './TaskList';
 import Navbar from './Navbar';
-
+import './TaskForm.css';
 const TaskForm = () => {
   const [title, setTitle] = useState('');
   const [error, setError] = useState('');
@@ -48,9 +48,9 @@ const TaskForm = () => {
     <>
     <Navbar />
     <div className='container'>
-      <h2 className="text-center">Todo Form</h2>
+      
       {error && <h1>{error}</h1>}
-      <form onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleSubmit}>
         <div className="input-group">
           <input
             type="text"
@@ -59,7 +59,7 @@ const TaskForm = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)} // Update title as user types
           />
-          <input type="submit" value="Add" className="btn btn-primary" />
+          <input type="submit" value="Add" className="btn Button" />
         </div>
       </form>
       <TaskList data={data} getData={getData} /> {/* Pass props to Feature */}

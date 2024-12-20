@@ -1,0 +1,232 @@
+.table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    /* Fix table width */
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 5%;
+    /* Serial Number column */
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    width: 15%;
+    /* Action column */
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 8%;
+    /* Priority column */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    width: auto;
+    /* Task column takes up the remaining space */
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #ddd;
+}
+
+.table-dark {
+    background-color: #343a40;
+    color: white;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+/* Make the table responsive */
+@media (max-width: 768px) {
+    .table {
+        font-size: 12px;
+        /* Reduce font size on smaller screens */
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        /* Reduce padding on smaller screens */
+    }
+
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        width: 10%;
+        /* Adjust SN column width */
+    }
+
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 20%;
+        /* Adjust Action column width */
+    }
+
+    .btn {
+        padding: 5px 8px;
+        /* Adjust button padding for smaller screens */
+        font-size: 12px;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table {
+        display: block;
+        /* Make the table scrollable horizontally */
+        overflow-x: auto;
+        white-space: nowrap;
+        /* Prevent columns from wrapping */
+    }
+
+    .table th,
+    .table td {
+        font-size: 10px;
+        /* Further reduce font size */
+        padding: 5px;
+        /* Further reduce padding */
+    }
+
+    .btn {
+        font-size: 10px;
+        padding: 4px 6px;
+        /* Compact buttons */
+    }
+
+    .form-control {
+        font-size: 10px;
+    }
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #ddd;
+}
+
+.table-dark {
+    background-color: #343a40;
+    color: white;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+/* Priority-based row styles */
+.priority-high {
+    background-color: #ffcccc;
+    /* Light red */
+    color: #b30000;
+    /* Dark red */
+}
+
+.priority-medium {
+    background-color: #ffe6b3;
+    /* Light orange */
+    color: #b35900;
+    /* Dark orange */
+}
+
+.priority-low {
+    background-color: #e6f7cc;
+    /* Light green */
+    color: #336600;
+    /* Dark green */
+}
+
+.completed-task {
+    background-color: #d4edda; /* Light green for completed tasks */
+    text-decoration: line-through; /* Strike-through for completed text */
+  }
+  
+  .table td input[type="checkbox"] {
+    transform: scale(1.2); /* Slightly larger checkboxes */
+    cursor: pointer;
+  }
+  
