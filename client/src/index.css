@@ -5,9 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(173, 165, 226);
+  background: #FCF6F5;
   background-size: cover;
   background-repeat: no-repeat;
+  color: #990011;
   background-attachment: fixed;
 }
 

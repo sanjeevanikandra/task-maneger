@@ -5,7 +5,7 @@ const TaskList = ({ data, getData }) => {
   const [newTitle, setNewTitle] = useState(''); // Track the updated title
 
   const deleteData = async (id) => {
-    await fetch(`http://localhost:5050/${id}`, { method: 'DELETE' });
+    await fetch(`https://ai-task-maneger-backend.onrender.com/${id}`, { method: 'DELETE' });
     getData(); // Refresh the todo list after deletion
   };
 
@@ -15,7 +15,7 @@ const TaskList = ({ data, getData }) => {
   };
 
   const saveEdit = async (id) => {
-    const response = await fetch(`http://localhost:5050/${id}`, {
+    const response = await fetch(`https://ai-task-maneger-backend.onrender.com/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTitle }), // Send updated title
