@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TaskList.css';
-
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const TaskList = ({ data, getData }) => {
   const [isEditing, setIsEditing] = useState(null);
   const [newTitle, setNewTitle] = useState('');
@@ -8,6 +9,16 @@ const TaskList = ({ data, getData }) => {
 
   const deleteData = async (id) => {
     await fetch(`https://ai-task-maneger-backend.onrender.com/${id}`, { method: 'DELETE' });
+    toast.success('Deleted successfully!', {
+      position: "top-right",
+      autoClose: 2000, 
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     getData();
   };
 
@@ -24,6 +35,17 @@ const TaskList = ({ data, getData }) => {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTitle, priority: newPriority }),
+      
+    });
+    toast.info("Edited successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
     });
 
     if (response.ok) {

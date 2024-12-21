@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import TaskList from './TaskList';
 import Navbar from './Navbar';
 import './TaskForm.css';
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const TaskForm = () => {
   const [title, setTitle] = useState('');
   const [error, setError] = useState('');
@@ -38,6 +40,16 @@ const TaskForm = () => {
 
 
     const data = await response.json();
+    toast.success("Created successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     if (response.ok) {
       console.log('Data has been added', data);
       setTitle('');

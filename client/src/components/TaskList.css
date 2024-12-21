@@ -156,7 +156,7 @@
     background-color: #e6f7cc;
     color: #336600;
 }
-
+/*edit button*/
 button.edit {
     background-color: #22c3c9;
     color: #fff;
@@ -171,7 +171,7 @@ button.edit {
 button.edit:hover {
     background-color: #3e9477;
 }
-
+/*delete button*/
 button.delete {
     background-color: #f44336;
     color: #fff;
@@ -191,10 +191,10 @@ table td button {
     margin-right: 6px;
 }
 
-/* Save Button */
+/*save button */
 button.save {
-    background-color: #4caf50; /* Soft green for Save */
-    color: white; /* White text */
+    background-color: #4caf50; 
+    color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 12px;
@@ -204,13 +204,13 @@ button.save {
 }
 
 button.save:hover {
-    background-color: #388e3c; /* Darker green on hover */
+    background-color: #388e3c;
 }
 
 /* Cancel Button */
 button.cancel {
-    background-color: #7e7675; /* Soft red for Cancel */
-    color: white; /* White text */
+    background-color: #7e7675; 
+    color: white; 
     border: none;
     border-radius: 5px;
     padding: 5px 12px;
@@ -220,10 +220,10 @@ button.cancel {
 }
 
 button.cancel:hover {
-    background-color: #524646; /* Darker red on hover */
+    background-color: #524646; 
 }
 
-/* Optional: Add spacing between Save and Cancel buttons */
+
 table td button.save,
 table td button.cancel {
     margin-right: 6px;
