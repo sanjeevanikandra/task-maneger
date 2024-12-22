@@ -1,5 +1,5 @@
 .button{
-    font-size: 12px;
+    font-size: 20px;
     border: none;
     background-color: #df7e23;
     color: white;
@@ -16,7 +16,7 @@
     align-items: center;
     color: white;
     padding: 10px 20px;
-    width: 14%;
+   width: 12%;
 
 }
 
