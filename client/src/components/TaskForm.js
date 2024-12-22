@@ -69,7 +69,7 @@ const TaskForm = () => {
         {error && <h1>{error}</h1>}
         <form className='form' onSubmit={handleSubmit}>
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Enter todo" value={title}
+            <input type="text" required className="form-control" placeholder="Enter todo" value={title}
               onChange={(e) => setTitle(e.target.value)} />
             <input type="submit" value="Add" className="btn Button" />
           </div>
