@@ -28,7 +28,7 @@ const TaskForm = () => {
 
     const todos = { title };
 
-    const response = await fetch('http://localhost:5050/', {
+    const response = await fetch('https://ai-task-maneger-backend.onrender.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
