@@ -11,15 +11,13 @@ const TaskForm = () => {
   // Function to fetch the todo list from the server
   const getData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/');
+      const response = await fetch('https://ai-task-maneger-backend.onrender.com'); // Update this URL if needed
       const result = await response.json();
       setData(result);
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
   };
-
   // Fetch data when the component loads
   useEffect(() => {
     getData();
@@ -30,7 +28,7 @@ const TaskForm = () => {
 
     const todos = { title };
 
-    const response = await fetch('https://ai-task-maneger-backend.onrender.com', {
+    const response = await fetch('http://localhost:5050/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,21 +38,21 @@ const TaskForm = () => {
 
 
     const data = await response.json();
-    toast.success("Created successfully!", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
     if (response.ok) {
       console.log('Data has been added', data);
       setTitle('');
       setError('');
       getData();
+      toast.success("Created successfully!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     } else {
       console.log('Data has not been added', data.error);
       setError(data.error);

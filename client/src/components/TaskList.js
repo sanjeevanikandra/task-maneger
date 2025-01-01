@@ -106,7 +106,7 @@ const TaskList = ({ data, getData }) => {
           {data && data.map((ele, index) => (
             <tr key={ele._id} className={`${getRowClass(ele.priority)} ${ele.completed ? 'completed' : ''}`}>
               <td>
-                <input type="checkbox" checked={ele.completed} onChange={() => toggleCompletion(ele._id, ele.completed)}/>
+                <input type="checkbox" checked={ele.completed} onChange={() => toggleCompletion(ele._id, ele.completed)} />
               </td>
               <td>
                 {isEditing === ele._id ? (
