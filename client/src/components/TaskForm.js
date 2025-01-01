@@ -11,7 +11,7 @@ const TaskForm = () => {
   // Function to fetch the todo list from the server
   const getData = async () => {
     try {
-      const response = await fetch('https://ai-task-maneger-backend.onrender.com');
+      const response = await fetch('http://localhost:5000/');
       const result = await response.json();
       setData(result);
     }
